@@ -40,7 +40,8 @@ TEMP_DIR=$(mktemp -d)
 mv "$CLONE_DIR/.git" "$TEMP_DIR/.git"
 
 echo "Remove contents of target directory (if exists) and create a new empty one"
-if [ -d "$CLONE_DIR/$TARGET_DIRECTORY" ]; then
+if [ -d "$CLONE_DIR/$TARGET_DIRECTORY" ] 
+then
     rm -R "$CLONE_DIR/$TARGET_DIRECTORY/"
     echo "Directory $TARGET_DIRECTORY deleted successfully."
 else
