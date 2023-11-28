@@ -40,6 +40,7 @@ TEMP_DIR=$(mktemp -d)
 mv "$CLONE_DIR/.git" "$TEMP_DIR/.git"
 
 # Remove contents of target directory and create a new empty one
+mkdir "$CLONE_DIR/$TARGET_DIRECTORY"
 rm -R "$CLONE_DIR/$TARGET_DIRECTORY/"
 mkdir "$CLONE_DIR/$TARGET_DIRECTORY"
 
