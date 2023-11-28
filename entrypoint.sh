@@ -27,6 +27,9 @@ fi
 CLONE_DIR=$(mktemp -d)
 
 echo "Cloning destination git repository"
+
+echo "Create empty directory"
+mkdir "$CLONE_DIR/$TARGET_DIRECTORY"
 # Setup git
 git config --global user.email "$USER_EMAIL"
 git config --global user.name "$USER_NAME"
@@ -39,8 +42,6 @@ TEMP_DIR=$(mktemp -d)
 # including "." and with the exception of ".git/"
 mv "$CLONE_DIR/.git" "$TEMP_DIR/.git"
 
-echo "Create empty directory"
-mkdir "$CLONE_DIR/$TARGET_DIRECTORY"
 echo "Remove contents of target directory and create a new empty one"
 rm -R "$CLONE_DIR/$TARGET_DIRECTORY/"
 mkdir "$CLONE_DIR/$TARGET_DIRECTORY"
