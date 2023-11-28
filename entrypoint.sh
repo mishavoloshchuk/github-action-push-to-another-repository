@@ -2,7 +2,7 @@
 
 set -e  # if a command fails it stops the execution
 set -u  # script fails if trying to access to an undefined variable
-
+echo "Hello world!"
 echo "Starts"
 SOURCE_DIRECTORY="$1"
 DESTINATION_GITHUB_USERNAME="$2"
