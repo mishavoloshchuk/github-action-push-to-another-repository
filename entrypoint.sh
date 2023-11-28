@@ -39,10 +39,14 @@ TEMP_DIR=$(mktemp -d)
 # including "." and with the exception of ".git/"
 mv "$CLONE_DIR/.git" "$TEMP_DIR/.git"
 
-echo "Create empty directory"
-mkdir -p "$CLONE_DIR/$TARGET_DIRECTORY"
-echo "Remove contents of target directory and create a new empty one"
-rm -R "$CLONE_DIR/$TARGET_DIRECTORY/"
+echo "Remove contents of target directory (if exists) and create a new empty one"
+if [ -d "$CLONE_DIR/$TARGET_DIRECTORY" ]; then
+    rm -R "$CLONE_DIR/$TARGET_DIRECTORY/"
+    echo "Directory $TARGET_DIRECTORY deleted successfully."
+else
+    echo "Directory $TARGET_DIRECTORY does not exist."
+fi
+
 mkdir "$CLONE_DIR/$TARGET_DIRECTORY"
 
 mv "$TEMP_DIR/.git" "$CLONE_DIR/.git"
