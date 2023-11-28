@@ -39,8 +39,9 @@ TEMP_DIR=$(mktemp -d)
 # including "." and with the exception of ".git/"
 mv "$CLONE_DIR/.git" "$TEMP_DIR/.git"
 
-# Remove contents of target directory and create a new empty one
+echo "Create empty directory"
 mkdir "$CLONE_DIR/$TARGET_DIRECTORY"
+echo "Remove contents of target directory and create a new empty one"
 rm -R "$CLONE_DIR/$TARGET_DIRECTORY/"
 mkdir "$CLONE_DIR/$TARGET_DIRECTORY"
 
