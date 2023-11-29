@@ -52,6 +52,9 @@ mkdir "$CLONE_DIR/$TARGET_DIRECTORY"
 
 mv "$TEMP_DIR/.git" "$CLONE_DIR/.git"
 
+# Remove the nested repo
+git rm --cached $CLONE_DIR/$TARGET_DIRECTORY
+
 
 if [ ! -d "$SOURCE_DIRECTORY" ]
 then
@@ -69,12 +72,10 @@ fi
 
 echo "Copy contents to target git repository"
 cp -ra "$SOURCE_DIRECTORY"/. "$CLONE_DIR/$TARGET_DIRECTORY"
-cd "$CLONE_DIR/$TARGET_DIRECTORY"
+cd "$CLONE_DIR"
 
 echo "Files that will be pushed:"
 ls -la
-
-cd "$CLONE_DIR"
 
 ORIGIN_COMMIT="https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"
 COMMIT_MESSAGE="${COMMIT_MESSAGE/ORIGIN_COMMIT/$ORIGIN_COMMIT}"
