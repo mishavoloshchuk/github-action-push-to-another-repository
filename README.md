@@ -1,6 +1,6 @@
 # github-action-push-to-another-repository-directory
 
-When to use this GitHub Action? It is useful in case that you have a GitHub repository with a a directory that you want to push to another GitHub repository using GitHub Actions (automated on push, for example). It is also useful if using GitHub Actions you generate certain files that you want to push to another GitHub repository.
+When to use this GitHub Action? It is useful in case that you have a GitHub repository with a a directory that you want to push to another GitHub repository using GitHub Actions (automated on push, for example). It is also useful if using GitHub Actions you generate certain files that you want to push to another GitHub repository. The action takes care to create the directory, if not yet present.
 
 Flow:
 
@@ -60,7 +60,7 @@ Then make the token available to the Github Action following the steps:
 ## Example usage
 ```yaml
       - name: Pushes to another repository
-        uses: cpina/github-action-push-to-another-repository@main
+        uses: mishavoloshchuk/github-action-push-to-another-repository@0.1.11
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
@@ -80,3 +80,6 @@ https://github.com/cpina/push-to-another-repository-example
 
 To:
 https://github.com/cpina/push-to-another-repository-output
+
+## Behavior Notes
+The action will remove the destionation folder before recreating it to place any copied files in it.
