@@ -69,10 +69,12 @@ fi
 
 echo "Copy contents to target git repository"
 cp -ra "$SOURCE_DIRECTORY"/. "$CLONE_DIR/$TARGET_DIRECTORY"
-cd "$CLONE_DIR"
+cd "$CLONE_DIR/$TARGET_DIRECTORY"
 
 echo "Files that will be pushed:"
 ls -la
+
+cd "$CLONE_DIR"
 
 ORIGIN_COMMIT="https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"
 COMMIT_MESSAGE="${COMMIT_MESSAGE/ORIGIN_COMMIT/$ORIGIN_COMMIT}"
