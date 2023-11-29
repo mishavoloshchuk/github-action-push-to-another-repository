@@ -53,7 +53,7 @@ mkdir "$CLONE_DIR/$TARGET_DIRECTORY"
 mv "$TEMP_DIR/.git" "$CLONE_DIR/.git"
 
 # Remove the nested repo
-git rm --cached $CLONE_DIR/$TARGET_DIRECTORY
+git rm --cached $CLONE_DIR/$TARGET_DIRECTORY/
 
 
 if [ ! -d "$SOURCE_DIRECTORY" ]
