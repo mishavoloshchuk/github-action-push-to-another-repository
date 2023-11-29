@@ -52,10 +52,6 @@ mkdir "$CLONE_DIR/$TARGET_DIRECTORY"
 
 mv "$TEMP_DIR/.git" "$CLONE_DIR/.git"
 
-# Remove the nested repo
-git rm --cached $CLONE_DIR/$TARGET_DIRECTORY/
-
-
 if [ ! -d "$SOURCE_DIRECTORY" ]
 then
 	echo "ERROR: $SOURCE_DIRECTORY does not exist"
@@ -72,6 +68,10 @@ fi
 
 echo "Copy contents to target git repository"
 cp -ra "$SOURCE_DIRECTORY"/. "$CLONE_DIR/$TARGET_DIRECTORY"
+
+# Remove the nested repo
+git rm --cached $CLONE_DIR/$TARGET_DIRECTORY/
+
 cd "$CLONE_DIR"
 
 echo "Files that will be pushed:"
